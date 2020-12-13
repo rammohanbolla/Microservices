@@ -1,2 +1,2 @@
-# Microservices_Training
-Microservices demos
+# Microservices
+Spring boot demo projects for Microservices
