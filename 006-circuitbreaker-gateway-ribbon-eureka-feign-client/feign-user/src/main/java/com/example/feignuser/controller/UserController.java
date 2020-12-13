@@ -9,52 +9,52 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.feignuser.dto.Order;
-import com.example.feignuser.feignclient.OrderClient;
+import com.example.feignuser.dto.ResponseDto;
+import com.example.feignuser.service.UserService;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-	
+
 	@Autowired
-	OrderClient orderClient;
-	
+	UserService userService;
+
 	@GetMapping("/info")
-	public String getInfo(){
-		return "From user service";
+	public String getInfo() {
+		return "Success";
 	}
-	
+
 	@GetMapping("/test")
-	public String getPortNo(){
-		return orderClient.getPortNo();
+	public String test() {
+		return userService.test();
 	}
-	
+
 	@GetMapping("")
-	public List<Order> getUserOrders() {
-		return orderClient.getAll();
+	public List<ResponseDto> getUserObjects() {
+		return userService.getUserObjects();
 	}
-	
+
 	@GetMapping("/{userId}")
-	public List<Order> getUserOrdersById(@PathVariable String userId) {
-		return orderClient.getAllById(userId);
+	public List<ResponseDto> getUserObjectsById(@PathVariable String userId) {
+		return userService.getUserObjectsById(userId);
 	}
-	
+
 	@GetMapping("/byparam")
-	public List<Order> getUserOrdersByReqParam(@RequestParam String userId) {
-		return orderClient.getAllByReqParam("112233");
+	public List<ResponseDto> getUserObjectsByReqParam(@RequestParam String userId) {
+		return userService.getUserObjectsByReqParam(userId);
 	}
-	
+
 	@GetMapping("/postparam")
-	public List<Order> testPostWithParam(@RequestParam String userId){
-		return orderClient.getAllByPostReqParam("tocken value jhjhhjhjhjasas", userId);
+	public List<ResponseDto> testPostWithParam(@RequestParam String userId) {
+		return userService.testPostWithParam(userId);
 	}
-	
+
 	@GetMapping("/bybody")
-	public Order testPostWithBody(){
-		Order order = new Order();
-		order.setId(1122);
-		order.setDes("Feign user");
-		return orderClient.getAllByPostReqBody(order);
+	public Object testPostWithBody() {
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setId(7676);
+		responseDto.setDes("Feign user ");
+		return userService.testPostWithBody(responseDto);
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.example.feignuser.dto;
 
-public class Order {
+public class ResponseDto {
 	
 	private int id;
 	

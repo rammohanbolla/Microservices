@@ -2,19 +2,19 @@ package com.example.feignuser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-import com.example.feignuser.config.RibbonConfiguration;
+import com.example.feignuser.config.Ribbononfiguration;
 
 @SpringBootApplication
 @EnableFeignClients
 @EnableEurekaClient
-@RibbonClient(name = "order-service", configuration = RibbonConfiguration.class)
-@EnableCircuitBreaker
+@RibbonClient(name = "orderclient", configuration = Ribbononfiguration.class)
+@EnableHystrix
 @EnableHystrixDashboard
 public class FeignUserApplication {
 

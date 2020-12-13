@@ -1,4 +1,4 @@
-package com.example.demogateway;
+package com.usk.uskgateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableEurekaClient
-public class DemoGatewayApplication {
+public class UskGatewayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoGatewayApplication.class, args);
+		SpringApplication.run(UskGatewayApplication.class, args);
 	}
 
 }

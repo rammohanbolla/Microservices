@@ -2,40 +2,36 @@ package com.example.feignuser.feignclient;
 
 import java.util.List;
 
-import javax.ws.rs.HeaderParam;
-
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.feignuser.dto.Order;
+import com.example.feignuser.dto.ResponseDto;
 
-//@FeignClient(value="order-service", url="http://localhost:8081/demo/orders")
-@FeignClient(name="http://ORDER-SERVICE/demo/orders", fallback = OrderClientFallback.class)
-//@FeignClient(name = "http://ORDER-SERVICE/demo/orders", configuration = CustomFeignConfiguration.class)
+//@FeignClient(value = "order-service", url = "http://localhost:8081/demo")
+@FeignClient(name = "http://ORDER-SERVICE/demo")
 public interface OrderClient {
 	
-	@GetMapping("/test")
-	public String getPortNo();
+	@GetMapping("orders/info")
+	public String getInfo();
 	
-	@GetMapping("")
-	public List<Order> getAll();
+	@GetMapping("/orders")
+	List<ResponseDto> getOrderDetails();
 	
-	@GetMapping("/{userId}")
-	public List<Order> getAllById(@PathVariable("userId") String userId);
+	@GetMapping("/orders/{userId}")
+	List<ResponseDto> getOrderForUser(@PathVariable("userId") String userId);
 	
-	@GetMapping("/byparam")
-	public List<Order> getAllByReqParam(@RequestParam("userId") String userId);
+	@GetMapping("/orders/byparam")
+	public List<ResponseDto> getAllByReqParam(@RequestParam String userId);
 	
-	@PostMapping(value="/byparam", produces="application/json", consumes="application/json")
-	public List<Order> getAllByPostReqParam(@RequestHeader("Auth-Token") String tocken, @RequestParam("userId") String userId);
+	@PostMapping("/orders/byparam")
+	public List<ResponseDto> getAllByPostReqParam(@RequestParam String userId);
 	
-	@PostMapping("/bybody")
-	public Order getAllByPostReqBody(@RequestBody Order order);
+	@PostMapping("/orders/bybody")
+	public ResponseDto getAllByPostReqBody(@RequestBody ResponseDto order);
+	
 
 }

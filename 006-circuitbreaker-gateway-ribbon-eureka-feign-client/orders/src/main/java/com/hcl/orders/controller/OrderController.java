@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,12 +22,12 @@ public class OrderController {
 	@Autowired
 	Environment environment;
 	
-	@GetMapping("/test")
-	public String getPortNo(){
+	@GetMapping("/info")
+	public String getInfo() {
 		String port = environment.getProperty("local.server.port");
-		return "From app : "+port;
+		return "From server "+port;
 	}
-	
+
 	@GetMapping("")
 	public List<Order> getAll() {
 
@@ -52,7 +51,6 @@ public class OrderController {
 	@GetMapping("/{userId}")
 	public List<Order> getAllById(@PathVariable String userId) {
 
-		
 		System.out.println("from order controller ===============>>" + userId);
 
 		List<Order> orders = new ArrayList<>();
@@ -91,9 +89,8 @@ public class OrderController {
 	}
 
 	@PostMapping("/byparam")
-	public List<Order> getAllByPostReqParam(@RequestHeader("Auth-Token") String tocken, @RequestParam String userId) {
+	public List<Order> getAllByPostReqParam(@RequestParam String userId) {
 
-		System.out.println("from order controller tocken ===============>>" + tocken);
 		System.out.println("from order controller ===============>>"+userId);
 
 		List<Order> orders = new ArrayList<>();

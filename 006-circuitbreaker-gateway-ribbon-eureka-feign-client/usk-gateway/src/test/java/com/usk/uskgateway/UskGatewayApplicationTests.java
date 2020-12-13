@@ -1,10 +1,10 @@
-package com.example.demogateway;
+package com.usk.uskgateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoGatewayApplicationTests {
+class UskGatewayApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,5 +1,6 @@
 package com.example.feignuser.config;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
@@ -9,19 +10,18 @@ import com.netflix.loadbalancer.IPing;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.PingUrl;
 
-public class RibbonConfiguration {
-	
+public class Ribbononfiguration {
+
 	@Autowired
-    IClientConfig config;
+	IClientConfig config;
 
-    @Bean
-    public IPing ribbonPing(IClientConfig config) {
-        return new PingUrl();
-    }
+	@Bean
+	public IPing ribbonPing(IClientConfig config) {
+		return new PingUrl();
+	}
 
-    @Bean
-    public IRule ribbonRule(IClientConfig config) {
-        return new AvailabilityFilteringRule();
-    }
-
+	@Bean
+	public IRule ribbonRule(IClientConfig config) {
+		return new AvailabilityFilteringRule();
+	}
 }
