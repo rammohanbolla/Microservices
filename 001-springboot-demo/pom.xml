@@ -11,7 +11,7 @@
 	<groupId>com.usk</groupId>
 	<artifactId>trainingdemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>trainingdemo</name>
+	<name>springboot-demo</name>
 	<description>trainingdemo project for Spring Boot</description>
 
 	<properties>
