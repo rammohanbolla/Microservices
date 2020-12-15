@@ -1,0 +1,5 @@
+Hystrix stream end point
+	http://localhost:8082/actuator/hystrix.stream
+	
+Hystrix dashboard
+	http://localhost:8082/hystrix
