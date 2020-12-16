@@ -25,22 +25,31 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	@HystrixCommand(fallbackMethod = "getFallbackUserObject")
+	@HystrixCommand(fallbackMethod = "fallbackGetOrderDEtails")
 	public List<ResponseDto> getUserObjects() {
 		return orderClient.getOrderDetails();
 	}
 	
-	public List<ResponseDto> getFallbackUserObject() {
+	public List<ResponseDto> fallbackGetOrderDEtails() {
 		List<ResponseDto> responseDtos = new ArrayList<>();
 		ResponseDto responseDto = new ResponseDto();
-		responseDto.setDes("Fallback method");
+		responseDto.setDes("Fallback method1 executed");
 		responseDtos.add(responseDto);
 		return responseDtos;
 	}
-
+	
 	@Override
+	@HystrixCommand(fallbackMethod = "fallbackGetOrderDEtailsById")
 	public List<ResponseDto> getUserObjectsById(@PathVariable String userId) {
 		return orderClient.getOrderForUser(userId);
+	}
+	
+	public List<ResponseDto> fallbackGetOrderDEtailsById() {
+		List<ResponseDto> responseDtos = new ArrayList<>();
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setDes("Fallback method2 executed");
+		responseDtos.add(responseDto);
+		return responseDtos;
 	}
 
 	@Override
