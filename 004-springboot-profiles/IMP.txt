@@ -1,0 +1,2 @@
+java -Dspring.profiles.active=prod -jar ./target/usk-profiles-0.0.1-SNAPSHOT.jar
+java -Dspring.profiles.active=dev -jar ./target/usk-profiles-0.0.1-SNAPSHOT.jar
