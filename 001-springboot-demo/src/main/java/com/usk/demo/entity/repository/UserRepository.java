@@ -1,4 +1,4 @@
-package com.usk.trainingdemo.repository;
+package com.usk.demo.entity.repository;
 
 import java.util.List;
 
@@ -6,9 +6,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.usk.trainingdemo.entity.User;
+import com.usk.demo.dto.UserResponseDto;
+import com.usk.demo.entity.User;
+
 
 public interface UserRepository extends JpaRepository<User, Long>{
+	
+	@Query("select new com.usk.demo.dto.UserResponseDto(u.firstName, count(u)) from User u where u.firstName=:firstName")
+	List<UserResponseDto> getUserResponseDto(@Param("firstName") String firstName);
 	
 	List<User> findByFirstName(String firstName);
 	

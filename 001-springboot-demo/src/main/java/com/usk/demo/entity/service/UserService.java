@@ -1,13 +1,16 @@
-package com.usk.trainingdemo.service;
+package com.usk.demo.entity.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.usk.trainingdemo.entity.User;
+import com.usk.demo.dto.UserResponseDto;
+import com.usk.demo.entity.User;
 
 @Service
 public interface UserService {
+	
+	public List<UserResponseDto> getUserResponseDto(String firstName);
 	
 	public void saveUser(User user);
 	

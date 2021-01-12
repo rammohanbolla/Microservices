@@ -1,8 +1,6 @@
-package com.usk.trainingdemo.controller;
+package com.usk.demo.entity.controller;
 
 import java.util.List;
-
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.usk.trainingdemo.entity.User;
-import com.usk.trainingdemo.service.UserService;
+import com.usk.demo.dto.UserResponseDto;
+import com.usk.demo.entity.User;
+import com.usk.demo.entity.service.UserService;
 
 @RestController
 @RequestMapping("/users")
@@ -22,6 +21,11 @@ public class UserController {
 	
 	@Autowired
 	UserService userService; 
+	
+	@GetMapping("/dto")
+	public List<UserResponseDto> getUserResponseDto(@RequestParam String firstName) {
+		return userService.getUserResponseDto(firstName);
+	}
 	
 	@GetMapping("/byname")
 	public List<User> getUsersByName(@RequestParam String firstName, @RequestParam String lastName){

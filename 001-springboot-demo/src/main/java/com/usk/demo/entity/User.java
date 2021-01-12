@@ -1,4 +1,4 @@
-package com.usk.trainingdemo.entity;
+package com.usk.demo.entity;
 
 import java.io.Serializable;
 

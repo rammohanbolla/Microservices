@@ -1,9 +1,7 @@
-package com.usk.trainingdemo.service.impl;
+package com.usk.demo.entity.service.impl;
 
 import java.util.List;
 import java.util.Optional;
-
-import javax.persistence.criteria.Order;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -12,9 +10,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.usk.trainingdemo.entity.User;
-import com.usk.trainingdemo.repository.UserRepository;
-import com.usk.trainingdemo.service.UserService;
+import com.usk.demo.dto.UserResponseDto;
+import com.usk.demo.entity.User;
+import com.usk.demo.entity.repository.UserRepository;
+import com.usk.demo.entity.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -57,6 +56,11 @@ public class UserServiceImpl implements UserService {
 		//Pageable pageable = PageRequest.of(pageNumber, pageSize);
 		Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Direction.ASC, "lastName"));
 		return userRepository.findAll(pageable).getContent();
+	}
+
+	@Override
+	public List<UserResponseDto> getUserResponseDto(String firstName) {
+		return userRepository.getUserResponseDto(firstName);
 	}
 
 }
