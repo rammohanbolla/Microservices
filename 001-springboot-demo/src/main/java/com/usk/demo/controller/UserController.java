@@ -1,4 +1,4 @@
-package com.usk.demo.entity.controller;
+package com.usk.demo.controller;
 
 import java.util.List;
 
@@ -13,34 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.usk.demo.dto.UserResponseDto;
 import com.usk.demo.entity.User;
-import com.usk.demo.entity.service.UserService;
+import com.usk.demo.repository.UserRepository;
+import com.usk.demo.service.UserService;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 	
 	@Autowired
-	UserService userService; 
-	
-	@GetMapping("/dto")
-	public List<UserResponseDto> getUserResponseDto(@RequestParam String firstName) {
-		return userService.getUserResponseDto(firstName);
-	}
-	
-	@GetMapping("/byname")
-	public List<User> getUsersByName(@RequestParam String firstName, @RequestParam String lastName){
-		return userService.getUsersByName(firstName, lastName);
-	}
-	
-	@GetMapping("/pagenation")
-	public List<User> getUser(int pageNumber, int pageSize){
-		return userService.getUser(pageNumber, pageSize);
-	}
-	
-	@GetMapping("")
-	public String getData() {
-		return "Success";
-	}
+	UserService userService;
 	
 	@PostMapping("")
 	public String saveUser(@RequestBody User user) {
@@ -48,14 +29,29 @@ public class UserController {
 		return "Success";
 	}
 	
+	@GetMapping("")
+	public List<User> getAllUsers(){
+		return userService.getAllUsers();
+	}
+	
 	@GetMapping("/{userId}")
 	public User getUserById(@PathVariable Long userId) {
 		return userService.getUserById(userId);
 	}
 	
-	@GetMapping("/all")
-	public List<User> getAllUsers(){
-		return  userService.getAllUsers();
+	@GetMapping("/nameSearch")
+	public List<User> getUsersByFirstName(@RequestParam String firstName){
+		return userService.getUsersByFirstName(firstName);
+	}
+	
+	@GetMapping("/search")
+	public List<User> getUsersByName(@RequestParam String firstName, @RequestParam String lastName){
+		return userService.getUsersByName(firstName, lastName);
+	}
+	
+	@GetMapping("/customUser")
+	public List<UserResponseDto> getCustomUser(@RequestParam String firstName){
+		return userService.getCustomUser(firstName);
 	}
 
 }

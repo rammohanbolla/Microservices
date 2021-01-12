@@ -1,22 +1,22 @@
 package com.usk.demo.dto;
 
 public class UserResponseDto {
-
-	public UserResponseDto(String name, long count) {
-		this.name = name;
-		this.count = count;
+	
+	public UserResponseDto(String firstName, long count){
+		this.firstName = firstName;
+		this.count =count;
 	}
-
-	private String name;
-
+	
+	private String firstName;
+	
 	private long count;
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public long getCount() {
@@ -26,5 +26,7 @@ public class UserResponseDto {
 	public void setCount(long count) {
 		this.count = count;
 	}
+	
+	
 
 }
