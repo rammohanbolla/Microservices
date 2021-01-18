@@ -9,7 +9,7 @@ public interface UserService {
 	
 	public void saveUser(User user);
 	
-	public List<User> getAllUsers();
+	//public List<User> getAllUsers();
 	
 	public User getUserById(Long userId);
 	
@@ -18,5 +18,7 @@ public interface UserService {
 	public List<User> getUsersByName(String firstName, String lastName);
 	
 	public List<UserResponseDto> getCustomUser(String firstName);
+
+	public List<User> getAllUsers(int pageNumber, int pageSize);
 
 }

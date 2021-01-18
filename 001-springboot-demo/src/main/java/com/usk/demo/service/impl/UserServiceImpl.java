@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -24,8 +28,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> getAllUsers() {
-		return userRepository.findAll();
+	public List<User> getAllUsers(int pageNumber, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Direction.ASC, "firstName").and(Sort.by(Direction.ASC, "lastName")));
+		return userRepository.findAll(pageable).getContent();
 	}
 
 	@Override
@@ -39,8 +44,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getUsersByFirstName(String firstName) {
+		Pageable pageable = PageRequest.of(0, 5);
 		//List<User> users = userRepository.findByFirstName(firstName);
-		List<User> users = userRepository.findByFirstNameContains(firstName);
+		List<User> users = userRepository.findByFirstNameContainsOrderByFirstNameAsc(firstName, pageable);
 		return users;
 	}
 

@@ -30,8 +30,8 @@ public class UserController {
 	}
 	
 	@GetMapping("")
-	public List<User> getAllUsers(){
-		return userService.getAllUsers();
+	public List<User> getAllUsers(@RequestParam int pageNumber, @RequestParam int pageSize){
+		return userService.getAllUsers(pageNumber, pageSize);
 	}
 	
 	@GetMapping("/{userId}")
