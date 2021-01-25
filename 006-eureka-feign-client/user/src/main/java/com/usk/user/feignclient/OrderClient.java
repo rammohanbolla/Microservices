@@ -17,6 +17,9 @@ import feign.Param;
 @FeignClient(name = "http://ORDER-SERVICE/order/orders")
 public interface OrderClient {
 	
+	@GetMapping("/port")
+	public String getPortNo();
+	
 	@GetMapping("/{userId}")
 	public List<OrderResponse> getOrdersByUserId(@Param("userId") @PathVariable String userId);
 	

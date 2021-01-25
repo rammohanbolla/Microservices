@@ -13,8 +13,12 @@ import com.usk.user.dto.OrderResponse;
 
 import feign.Param;
 
-@FeignClient(value = "order-service", url = "http://localhost:8082/order/orders")
+//@FeignClient(value = "order-service", url = "http://localhost:8082/order/orders")
+@FeignClient(name = "http://ORDER-SERVICE/order/orders")
 public interface OrderClient {
+	
+	@GetMapping("/port")
+	public String getPortNo();
 	
 	@GetMapping("/{userId}")
 	public List<OrderResponse> getOrdersByUserId(@Param("userId") @PathVariable String userId);

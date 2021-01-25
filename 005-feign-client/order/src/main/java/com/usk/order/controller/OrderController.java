@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +20,15 @@ import com.usk.order.dto.Order;
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
+
+	@Autowired
+	Environment environment;
+
+	@GetMapping("/port")
+	public String getPortNo() {
+		String port = environment.getProperty("local.server.port");
+		return "From Order app : " + port;
+	}
 
 	static Map<String, List<Order>> userOrders = new HashMap<>();
 
