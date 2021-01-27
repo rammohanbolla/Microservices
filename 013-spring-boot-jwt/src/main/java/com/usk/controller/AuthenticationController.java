@@ -1,16 +1,21 @@
 package com.usk.controller;
 
-import com.usk.config.JwtTokenUtil;
-import com.usk.model.*;
-import com.usk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.usk.config.JwtTokenUtil;
+import com.usk.model.ApiResponse;
+import com.usk.model.AuthToken;
+import com.usk.model.LoginUser;
+import com.usk.model.User;
+import com.usk.service.UserService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
