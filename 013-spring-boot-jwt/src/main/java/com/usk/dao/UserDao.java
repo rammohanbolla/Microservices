@@ -1,6 +1,6 @@
-package com.devglan.dao;
+package com.usk.dao;
 
-import com.devglan.model.User;
+import com.usk.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

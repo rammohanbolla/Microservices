@@ -1,8 +1,8 @@
-package com.devglan.controller;
+package com.usk.controller;
 
-import com.devglan.config.JwtTokenUtil;
-import com.devglan.model.*;
-import com.devglan.service.UserService;
+import com.usk.config.JwtTokenUtil;
+import com.usk.model.*;
+import com.usk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

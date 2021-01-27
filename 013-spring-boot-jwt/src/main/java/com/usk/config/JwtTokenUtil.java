@@ -1,6 +1,6 @@
-package com.devglan.config;
+package com.usk.config;
 
-import com.devglan.model.User;
+import com.usk.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -13,8 +13,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.function.Function;
 
-import static com.devglan.model.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
-import static com.devglan.model.Constants.SIGNING_KEY;
+import static com.usk.model.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
+import static com.usk.model.Constants.SIGNING_KEY;
 
 @Component
 public class JwtTokenUtil implements Serializable {

@@ -1,4 +1,4 @@
-package com.devglan.config;
+package com.usk.config;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
-import static com.devglan.model.Constants.HEADER_STRING;
-import static com.devglan.model.Constants.TOKEN_PREFIX;
+import static com.usk.model.Constants.HEADER_STRING;
+import static com.usk.model.Constants.TOKEN_PREFIX;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 

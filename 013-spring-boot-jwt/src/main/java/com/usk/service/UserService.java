@@ -1,7 +1,7 @@
-package com.devglan.service;
+package com.usk.service;
 
-import com.devglan.model.User;
-import com.devglan.model.UserDto;
+import com.usk.model.User;
+import com.usk.model.UserDto;
 
 import java.util.List;
 

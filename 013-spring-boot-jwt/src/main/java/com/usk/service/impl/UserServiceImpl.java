@@ -1,9 +1,9 @@
-package com.devglan.service.impl;
+package com.usk.service.impl;
 
-import com.devglan.dao.UserDao;
-import com.devglan.model.User;
-import com.devglan.model.UserDto;
-import com.devglan.service.UserService;
+import com.usk.dao.UserDao;
+import com.usk.model.User;
+import com.usk.model.UserDto;
+import com.usk.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

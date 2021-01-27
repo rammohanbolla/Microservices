@@ -1,4 +1,4 @@
-package com.devglan.model;
+package com.usk.model;
 
 public class LoginUser {
 

@@ -1,4 +1,4 @@
-package com.devglan.config;
+package com.usk.config;
 
 import java.io.IOException;
 

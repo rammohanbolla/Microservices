@@ -1,4 +1,4 @@
-package com.devglan.controller;
+package com.usk.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devglan.model.User;
-import com.devglan.model.UserDto;
-import com.devglan.service.UserService;
+import com.usk.model.User;
+import com.usk.model.UserDto;
+import com.usk.service.UserService;
 
 @RestController
 public class RegistrationController {
