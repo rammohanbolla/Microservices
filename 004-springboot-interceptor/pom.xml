@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.usk</groupId>
-	<artifactId>springboot-interceptor</artifactId>
+	<artifactId>usk-interceptor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-interceptor</name>
+	<name>usk-interceptor</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>14</java.version>

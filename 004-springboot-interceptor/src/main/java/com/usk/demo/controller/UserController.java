@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-	
-	@GetMapping("/test")
-	public String interceptorTest() {
-		System.out.println("From controller =============");
-		return "Hi User!!!";
-	}
 
+	@GetMapping("")
+	public String saveUser() {
+		System.out.println("From user usercontroller");
+		return "Success";
+	}
 }
