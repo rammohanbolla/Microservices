@@ -5,13 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/admin")
+public class AdminController {
 	
 	@GetMapping("/test")
-	public String interceptorTest() {
-		System.out.println("From controller =============");
-		return "Hi User!!!";
+	public String test() {
+		return "Hi admin!!!";
 	}
 
 }
