@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.usk.demo.dto.UserResponseDto;
 import com.usk.demo.entity.User;
+import com.usk.demo.exception.UserNotFoundException;
 
 public interface UserService {
 	
@@ -11,7 +12,7 @@ public interface UserService {
 	
 	//public List<User> getAllUsers();
 	
-	public User getUserById(Long userId);
+	public User getUserById(Long userId) throws UserNotFoundException;
 	
 	public List<User> getUsersByFirstName(String firstName);
 	

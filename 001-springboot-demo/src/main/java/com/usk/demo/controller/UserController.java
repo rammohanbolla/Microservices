@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.usk.demo.dto.UserResponseDto;
 import com.usk.demo.entity.User;
-import com.usk.demo.repository.UserRepository;
+import com.usk.demo.exception.UserNotFoundException;
 import com.usk.demo.service.UserService;
 
 @RestController
@@ -35,7 +35,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/{userId}")
-	public User getUserById(@PathVariable Long userId) {
+	public User getUserById(@PathVariable Long userId) throws UserNotFoundException {
 		return userService.getUserById(userId);
 	}
 	

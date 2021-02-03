@@ -9,10 +9,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.usk.demo.dto.UserResponseDto;
 import com.usk.demo.entity.User;
+import com.usk.demo.exception.UserNotFoundException;
 import com.usk.demo.repository.UserRepository;
 import com.usk.demo.service.UserService;
 
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserRepository userRepository;
-
+	
 	@Override
 	public void saveUser(User user) {
 		userRepository.save(user);
@@ -34,12 +34,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getUserById(Long userId) {
+	public User getUserById(Long userId) throws UserNotFoundException {
 		Optional<User> user = userRepository.findById(userId);
 		if(user.isPresent()) {
 			return user.get();
+		}else {
+			throw new UserNotFoundException("User Not found");
 		}
-		return null;
+		//return null;
 	}
 
 	@Override
