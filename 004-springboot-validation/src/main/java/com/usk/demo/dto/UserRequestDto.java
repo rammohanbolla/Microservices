@@ -2,11 +2,11 @@ package com.usk.demo.dto;
 
 import java.util.Date;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class UserRequestDto {
@@ -24,17 +24,6 @@ public class UserRequestDto {
 	
 	@Past
 	private Date date;
-	
-	@Valid
-	private AddressDto addressDto;
-	
-	public AddressDto getAddressDto() {
-		return addressDto;
-	}
-
-	public void setAddressDto(AddressDto addressDto) {
-		this.addressDto = addressDto;
-	}
 
 	public Date getDate() {
 		return date;
