@@ -1,0 +1,18 @@
+server:
+  port: 7777
+  
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: order
+        uri:
+          http://localhost:8082/
+        predicates:
+        - Path=/order/**
+      - id: user
+        uri:
+          http://localhost:8081/
+        predicates:
+        - Path=/user/**
+          
