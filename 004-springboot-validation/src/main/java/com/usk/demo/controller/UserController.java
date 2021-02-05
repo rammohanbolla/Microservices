@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usk.demo.dto.UserRequestDto;
+import com.usk.demo.dto.UserResponseDto;
 
 @RestController
 @RequestMapping("/users")
@@ -37,5 +38,13 @@ public class UserController {
 	@GetMapping("/{userId}")
 	public UserRequestDto getUser(@PathVariable("userId") @Min(3) @Max(6) String userId) {
 		return new UserRequestDto();
+	}
+	
+	@PostMapping("/newUser")
+	@Valid
+	public UserResponseDto saveNewUser(@Valid @RequestBody UserRequestDto userRequestDto) {
+		UserResponseDto userResponseDto = new UserResponseDto();
+		userResponseDto.setFirstName("fname1");
+		return userResponseDto;
 	}
 }
