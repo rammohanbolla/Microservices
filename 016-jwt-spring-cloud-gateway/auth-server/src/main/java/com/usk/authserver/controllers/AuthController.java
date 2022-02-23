@@ -15,16 +15,12 @@ import com.usk.authserver.services.AuthService;
 @RequestMapping(value = "/auth")
 public class AuthController {
 
-    private final AuthService authService;
+	@Autowired
+	AuthService authService;
 
-    @Autowired
-    public AuthController(final AuthService authService) {
-        this.authService = authService;
-    }
-
-    @PostMapping(value = "/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody AuthRequest authRequest) {
-        return ResponseEntity.ok(authService.register(authRequest));
-    }
+	@PostMapping(value = "/register")
+	public ResponseEntity<AuthResponse> register(@RequestBody AuthRequest authRequest) {
+		return ResponseEntity.ok(authService.register(authRequest));
+	}
 
 }
